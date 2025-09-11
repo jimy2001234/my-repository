@@ -4,12 +4,15 @@ body {
     color: #f2f2f2;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
-canvas {
+#bg {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
 }
 
@@ -66,9 +69,10 @@ p {
     justify-content: center;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.6s ease, z-index 0.6s ease, background 0.4s ease;
+    transition: transform 0.6s ease, z-index 0.6s ease, background 0.4s ease, opacity 0.4s ease;
 }
 
+/* Capas del stack */
 .stack-1 {
     z-index: 5;
     transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
@@ -111,7 +115,7 @@ p {
     transform: translateY(0);
 }
 
-/* Colores por clase */
+/* Colores personalizados */
 .block-yellow {
     background: #33727a;
 }
@@ -130,32 +134,6 @@ p {
 
 .block-light {
     background: #232121;
-}
-
-/* Repetidos por seguridad (capa por capa) */
-.block:nth-child(1) {
-    z-index: 5;
-    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
-}
-
-.block:nth-child(2) {
-    z-index: 4;
-    transform: translateY(55px) translateX(-30px) rotate(-2deg) scale(0.95);
-}
-
-.block:nth-child(3) {
-    z-index: 3;
-    transform: translateY(110px) translateX(30px) rotate(2.5deg) scale(0.9);
-}
-
-.block:nth-child(4) {
-    z-index: 2;
-    transform: translateY(165px) translateX(-35px) rotate(-3deg) scale(0.86);
-}
-
-.block:nth-child(5) {
-    z-index: 1;
-    transform: translateY(220px) translateX(35px) rotate(3deg) scale(0.82);
 }
 
 /* Responsive */

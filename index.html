@@ -10,7 +10,8 @@
 
 <body>
 
-    <canvas id="stars"></canvas>
+    <!-- Contenedor del fondo 3D -->
+    <div id="bg"></div>
 
     <!-- Sección de inicio -->
     <section id="inicio" class="reveal">
@@ -24,42 +25,37 @@
             <div class="block block-yellow"><span>🌟Habilidades
                     <br>
                     Cuento con conocimiento en HTML, CSS, JAVASCRIPT, PYTHON
-                    <br>
-                    <br>
+                    <br><br>
                     🌟Skills <br>
                     I have knowledge in HTML, CSS, JAVASCRIPT, PYTHON
                 </span></div>
             <div class="block block-cyan"><span>🌌"El código no solo construye programas, también construye futuros.
                     Cada línea es una oportunidad para cambiar el mundo, una función a la vez."</span></div>
             <div class="block block-pink"><span>🚀</span></div>
-
         </div>
-
     </section>
 
     <!-- Sobre mí -->
     <section id="sobre-mi" class="reveal">
         <h2>About me</h2>
-
-        <p>Soy Jimy Orozco Tabares, tengo 23 años, Soy de Colombia,
+        <p>
+            Soy Jimy Orozco Tabares, tengo 23 años, Soy de Colombia,
             Me gusta leer mucho sobre otros lugares ya que me encanta
             Saber los diferentes tipos de cultura que hay en nuestro mundo
             Aparte de ampliar mi conocimiento y abrir mi mente a nuevos puntos de vista.
-
+            <br><br>
             También soy una persona con valores como el respeto,
             La tolerancia y la honestidad pero sobre todo la responsabilidad
             Soy muy responsable y entregado a mi trabajo
             También me gusta asumir retos, ya que siento que ninguno me queda grande.
         </p>
-
         <br>
-
         <p>
             I am Jimy Orozco Tabares, I am 23 years old, and I’m from Colombia.
             I really enjoy reading about other places because I love
             learning about the different cultures that exist in our world.
             It also helps me expand my knowledge and open my mind to new perspectives.
-
+            <br><br>
             I’m also someone who values things like respect,
             tolerance, and honesty — but above all, responsibility.
             I’m a highly responsible person and deeply dedicated to my work.
@@ -76,6 +72,10 @@
     <!-- Sonido -->
     <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_b7b4b867f0.mp3"></audio>
 
+    <!-- Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+
+    <!-- Script principal -->
     <script src="script.js"></script>
 </body>
 
