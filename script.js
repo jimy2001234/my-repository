@@ -41,7 +41,7 @@ function updateLines() {
       const dy = pos[ix + 1] - pos[jx + 1];
       const dz = pos[ix + 2] - pos[jx + 2];
       const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-      if (dist < 70) { // distancia de conexión
+      if (dist < 70) {
         linePositions.push(
           pos[ix], pos[ix + 1], pos[ix + 2],
           pos[jx], pos[jx + 1], pos[jx + 2]
@@ -54,7 +54,6 @@ function updateLines() {
 }
 
 function animateParticles() {
-  // mueve ligeramente cada vértice para dar vida
   const pos = points.geometry.attributes.position.array;
   for (let i = 0; i < pos.length; i++) {
     pos[i] += (Math.random() - 0.5) * 0.2;
@@ -78,9 +77,8 @@ window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-
 // ----------------------------
-// Scroll reveal (igual que antes)
+// Scroll reveal
 // ----------------------------
 function revealOnScroll() {
   const reveals = document.querySelectorAll(".reveal");
@@ -93,47 +91,27 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
-
 // ----------------------------
-// Interactividad con bloques apilados y sonido (FIX)
+// Interactividad con bloques separados
 // ----------------------------
 const gallery = document.getElementById('gallery');
 const sound = document.getElementById('clickSound');
 
-// Aplica clases stack según el orden actual en el DOM
-function updateStackOrder() {
-  const blocks = Array.from(gallery.querySelectorAll('.block'));
-  blocks.forEach((block, i) => {
-    block.classList.remove('stack-1', 'stack-2', 'stack-3', 'stack-4', 'stack-5');
-    block.classList.add(`stack-${i + 1}`);
-  });
-}
-// Inicial
-updateStackOrder();
-
-// Delegación de eventos: funciona aunque reordenes nodos
 gallery.addEventListener('click', (e) => {
   const block = e.target.closest('.block');
-  if (!block || !gallery.contains(block)) return;
+  if (!block) return;
 
-  // Mover al frente (primera posición en el contenedor)
-  gallery.insertBefore(block, gallery.firstChild);
+  // Quitar active de todos
+  gallery.querySelectorAll('.block').forEach(b => b.classList.remove('active'));
 
-  // Actualizar clases según nuevo orden DOM
-  updateStackOrder();
+  // Activar el clickeado
+  block.classList.add('active');
 
   // Sonido
   try {
     sound.currentTime = 0;
     sound.play();
   } catch (err) {
-    // si el navegador bloquea autoplay por falta de interacción previa, lo ignoramos
-    // console.warn('Autoplay blocked');
+    // autoplay bloqueado, ignorar
   }
 });
-
-
-
-
-
-
